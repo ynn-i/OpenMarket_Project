@@ -11,7 +11,6 @@ body {
   color: #222;
   word-wrap: break-word;
   word-break: keep-all;
-  text-size-adjust: none;
   font-weight: 400;
 }
 
@@ -65,7 +64,6 @@ select {
   font-family: "Pretendard", "Poppins", Helvetica, "Apple SD Gothic Neo", Dotum, 돋움, sans-serif;
   font-size: 100%;
   box-sizing: border-box;
-  -webkit-box-sizing: border-box;
 }
 
 button,
@@ -81,7 +79,6 @@ input[type=url],
 input[type=file],
 textarea {
   box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: none;
@@ -89,9 +86,11 @@ textarea {
   background: none;
   font-family: "Pretendard", "Poppins", Helvetica, "Apple SD Gothic Neo", Dotum, 돋움, sans-serif;
   font-size: 100%;
+  appearance: none;
 }
 
-label {
+label,
+button:hover {
   cursor: pointer;
 }
 
@@ -104,29 +103,18 @@ h6 {
   font-weight: normal;
 }
 
-ol,
-ul {
-  list-style: none;
-}
-
-table {
-  border-spacing: 0;
-}
-
 ul,
 ol,
 li {
   margin: 0;
   padding: 0;
-}
-
-li {
   list-style: none;
 }
 
+a:focus,
 input:focus,
 button:focus,
-a:focus {
+textarea:focus {
   outline: none;
 }
 
@@ -135,44 +123,72 @@ a {
   text-decoration: none;
 }
 
+button {
+  background: transparent;
+}
+
 img {
   max-width: 100%;
   height: auto;
 }
 
-button:hover {
-  cursor: pointer;
-}
-
-button {
-  background: transparent;
-}
-
-textarea:focus {
-  outline: none;
-}
-
 .sr-only {
-  overflow: hidden;
-  display: block;
   position: absolute;
-  border: 0;
   width: 1px;
   height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none;
 }
 
 header {
+  padding: 1.25rem 0;
+}
+
+.header-con {
+  max-width: 80rem;
+  margin: 0 auto;
   display: flex;
-  padding: 20px 0;
-  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
 }
-header a h1 img {
-  width: 124px;
+.header-con a h1 img {
+  min-width: 7.75rem;
+  margin-right: 1.5rem;
 }
-header input {
-  max-width: 400px;
-}
-header nav {
+.header-con form {
+  max-width: 25rem;
+  width: 100%;
+  padding: 0.5rem 1.25rem;
   display: flex;
+  border-radius: 25rem;
+  border: 2px solid #21bf48;
+}
+.header-con form input {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex: 1;
   justify-content: end;
+  gap: 1.5rem;
+  font-size: 0.75rem;
+  color: #767676;
+}
+nav .nav-con {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+nav img {
+  width: 2rem;
 }/*# sourceMappingURL=main.css.map */

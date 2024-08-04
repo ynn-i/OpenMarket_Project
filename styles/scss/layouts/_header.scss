@@ -1,15 +1,48 @@
 header {
+    padding: 1.25rem 0;
+}
+
+.header-con {
+    max-width: 80rem;
+    margin: 0 auto;
     display: flex;
-    padding: 20px 0;
-    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+
     a h1 img {
-        width: 124px;
+        min-width: 7.75rem;
+        margin-right: 1.5rem;
     }
-    input {
-        max-width: 400px;
-    }
-    nav {
+
+    form {
+        max-width: 25rem;
+        width: 100%;
+        padding: 0.5rem 1.25rem;
         display: flex;
-        justify-content: end;
+        border-radius: 25rem;
+        border: 2px solid $primary-color;
+
+        input {
+            width: 100%;
+        }
+    }
+}
+
+nav {
+    display: flex;
+    flex: 1;
+    justify-content: end;
+    gap: 1.5rem;
+
+    font-size: 0.75rem;
+    color: $gray-76;
+
+    .nav-con {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    img {
+        width: 2rem;
     }
 }

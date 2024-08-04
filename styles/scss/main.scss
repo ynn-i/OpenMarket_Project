@@ -1,5 +1,5 @@
+@import './variables';
 @import './base/base';
 @import './base/reset';
-@import 'layouts/header';
-@import 'layouts/footer';
-@import 'variables';
+@import './layouts/footer';
+@import './layouts/header';
