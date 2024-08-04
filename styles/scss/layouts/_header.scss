@@ -27,24 +27,24 @@ header {
             width: 100%;
         }
     }
-}
 
-nav {
-    display: flex;
-    flex: 1;
-    justify-content: end;
-    gap: 1.5rem;
-
-    font-size: 0.75rem;
-    color: $gray-76;
-
-    .nav-con {
+    nav {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.25rem;
-    }
-    img {
-        width: 2rem;
+        flex: 1;
+        justify-content: end;
+        gap: 1.5rem;
+
+        font-size: 0.75rem;
+        color: $gray-76;
+
+        .nav-con {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        img {
+            width: 2rem;
+        }
     }
 }

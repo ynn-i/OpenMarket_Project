@@ -149,6 +149,54 @@ img {
   display: none;
 }
 
+footer {
+  padding: 3.25rem 0 3.75rem 0;
+  background-color: #f2f2f2;
+  font-size: 0.875rem;
+  color: #767676;
+}
+
+.footer-con {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.footer-con nav {
+  padding-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: #222;
+  border-bottom: 1px solid #c4c4c4;
+}
+.footer-con nav .info-con a {
+  padding-right: 2rem;
+  position: relative;
+}
+.footer-con nav .info-con a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 1px;
+  height: 0.75rem;
+  background-color: #222;
+  transform: translateY(-50%);
+}
+.footer-con nav .info-con a:last-child::after {
+  display: none;
+}
+.footer-con nav .social-con {
+  display: flex;
+  flex: 1;
+  justify-content: end;
+  gap: 0.75rem;
+}
+.footer-con nav .social-con a img {
+  width: 2rem;
+}
+
 header {
   padding: 1.25rem 0;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
@@ -176,8 +224,7 @@ header {
 .header-con form input {
   width: 100%;
 }
-
-nav {
+.header-con nav {
   display: flex;
   flex: 1;
   justify-content: end;
@@ -185,12 +232,12 @@ nav {
   font-size: 0.75rem;
   color: #767676;
 }
-nav .nav-con {
+.header-con nav .nav-con {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
 }
-nav img {
+.header-con nav img {
   width: 2rem;
 }/*# sourceMappingURL=main.css.map */
