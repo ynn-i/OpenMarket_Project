@@ -1,0 +1,147 @@
+// reset
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+abbr,
+img,
+q,
+strong,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+nav,
+section,
+video,
+button,
+select {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Pretendard', 'Poppins', Helvetica, 'Apple SD Gothic Neo', Dotum, 돋움, sans-serif;
+    font-size: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+button,
+input[type='search'],
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='submit'],
+input[type='reset'],
+input[type='tel'],
+input[type='password'],
+input[type='url'],
+input[type='file'],
+textarea {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    font-family: 'Pretendard', 'Poppins', Helvetica, 'Apple SD Gothic Neo', Dotum, 돋움, sans-serif;
+    font-size: 100%;
+}
+
+label {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+table {
+    border-spacing: 0;
+}
+
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+input:focus,
+button:focus,
+a:focus {
+    outline: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button {
+    background: transparent;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+// screen
+.sr-only {
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    border: 0;
+    width: 1px;
+    height: 1px;
+}

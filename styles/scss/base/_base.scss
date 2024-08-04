@@ -1,0 +1,14 @@
+html {
+    font-size: 16px;
+    overflow-y: scroll;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    position: relative;
+    line-height: 1.5;
+    color: $black;
+    word-wrap: break-word;
+    word-break: keep-all;
+    font-weight: 400;
+}

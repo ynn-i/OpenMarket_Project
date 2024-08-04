@@ -1,0 +1,15 @@
+header {
+    display: flex;
+    padding: 20px 0;
+    box-sizing: border-box;
+    a h1 img {
+        width: 124px;
+    }
+    input {
+        max-width: 400px;
+    }
+    nav {
+        display: flex;
+        justify-content: end;
+    }
+}
