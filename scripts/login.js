@@ -1,3 +1,4 @@
+// 아이디 비밀번호 검증 및 로그인
 async function login(id, pw, login_type) {
     const buyerTab = document.getElementById('login-tab').checked;
     const id = document.getElementById('id').value.trim();
@@ -40,44 +41,31 @@ async function login(id, pw, login_type) {
 }
 document.querySelector('button').addEventListener('click', login);
 
-// 비로그인 상태일 때 로그인 페이지로 이동
-document.addEventListener('DOMContentLoaded', function () {
-    const cartBtn = document.querySelector('.cart');
+// ----------
+// 장바구니 아이콘으로 로그인 모달창 띄우기
+const openLoginBtn = document.querySelector('.cart');
+const closeLoginBtn = document.querySelector('.close-btn');
+const LoginModal = document.querySelector('.modal');
+const moveLoginBtn = document.querySelector('.yes-btn');
 
-    cartBtn.addEventListener('click', function (event) {
-        event.preventDefault();
+function openModal(event) {
+    event.preventDefault();
+    LoginModal.classList.remove('hidden');
+}
+function closeModal() {
+    LoginModal.classList.add('hidden');
+}
 
-        if (isLoggedIn()) {
-            window.location.href = '/cart.html';
-        } else {
-            // 로그인 요청 모달 디스플레이 논 해제
-        }
-    });
+openLoginBtn.addEventListener('click', openModal);
+closeLoginBtn.addEventListener('click', closeModal);
+noLoginBtn.addEventListener('click', closeModal);
+LoginModal.addEventListener('click', function (event) {
+    if (event.target === LoginModal) {
+        closeModal();
+    }
 });
 
-async function isLoggedIn() {
-    const token = localStorage.getItem('jwtToken');
-    if (!token) {
-        return false;
-    }
-
-    try {
-        const response = await fetch('/api/verify-token', {
-            method: 'GET',
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-
-        if (response.ok) {
-            return true;
-        } else {
-            // 토큰이 유효하지 않으면 로컬 스토리지에서 제거
-            localStorage.removeItem('jwtToken');
-            return false;
-        }
-    } catch (error) {
-        console.error('Token verification failed:', error);
-        return false;
-    }
-}
+// 로그인 페이지로 이동하기
+moveLoginBtn.addEventListener('click', function () {
+    window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
+});
