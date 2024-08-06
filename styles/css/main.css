@@ -147,7 +147,7 @@ img {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 footer {
@@ -418,10 +418,12 @@ main h2 {
 .cart-list {
   width: 100%;
   margin: 35px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .cart-list li {
   width: 100%;
-  margin-bottom: 10px;
   padding: 1.25rem 1.75rem;
   display: flex;
   align-items: center;
@@ -532,4 +534,77 @@ main h2 {
   font-size: 18px;
   border-left: 1px solid #c4c4c4;
   border-right: 1px solid #c4c4c4;
+}
+
+.cost-result-con {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cost-result-con .cost-result {
+  width: 100%;
+  margin: 80px 0 40px 0;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+.cost-result-con .cost-result div {
+  width: 100%;
+}
+.cost-result-con .cost-result div p {
+  padding-bottom: 10px;
+}
+.cost-result-con .cost-result div span {
+  margin-right: 1rem;
+  font-weight: 600;
+  font-size: 24px;
+  position: relative;
+}
+.cost-result-con .cost-result div span::after {
+  content: "원";
+  font-weight: 400;
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  padding-left: 2px;
+  transform: translateY(-50%);
+}
+.cost-result-con .cost-result .icon-minus {
+  position: absolute;
+  left: 25%;
+}
+.cost-result-con .cost-result .icon-plus {
+  position: absolute;
+  left: 48%;
+}
+.cost-result-con button {
+  padding: 18px 64px;
+  color: #fff;
+  background-color: #21bf48;
+  font-weight: 600;
+  font-size: 24px;
+  border-radius: 5px;
+}
+
+.red {
+  color: #eb5757;
+}
+
+.no-cart {
+  padding: 200px 0;
+  text-align: center;
+}
+.no-cart p {
+  font-size: 18px;
+  font-weight: 600;
+}
+.no-cart .sub-text {
+  padding-top: 1rem;
+  color: #767676;
+  font-size: 14px;
 }/*# sourceMappingURL=main.css.map */
