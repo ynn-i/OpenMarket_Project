@@ -1,0 +1,61 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        padding: 54px 0 52px 0;
+        font-size: 36px;
+        font-weight: 700;
+    }
+}
+
+.cart-title {
+    max-width: 1280px;
+    width: 100%;
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    gap: 1.75rem;
+
+    font-size: 18px;
+    background-color: $gray-f2;
+    border-radius: 10px;
+    text-align: center;
+
+    .check {
+        width: 20px;
+
+        label {
+            display: inline-block;
+
+            &::before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                background: url('../../../assets/icons/icon-check.svg') no-repeat;
+                background-size: 20px;
+            }
+        }
+
+        input[type='checkbox'] {
+            display: none;
+
+            &:checked + label::before {
+                content: '';
+                width: 20px;
+                height: 20px;
+                background: url('../../../assets/icons/icon-checked.svg') no-repeat;
+                background-size: 20px;
+            }
+        }
+    }
+    .info {
+        width: 100%;
+    }
+    .count {
+        width: 260px;
+    }
+    .price {
+        width: 260px;
+    }
+}
