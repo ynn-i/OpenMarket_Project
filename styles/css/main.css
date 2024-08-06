@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
 html {
   font-size: 16px;
   overflow-y: scroll;
@@ -7,68 +8,13 @@ html {
 
 body {
   position: relative;
-  line-height: 1.5;
+  line-height: 1;
   color: #222;
   word-wrap: break-word;
   word-break: keep-all;
   font-weight: 400;
 }
 
-@font-face {
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../../fonts/Pretendard-Light.woff2") format("font-woff2"), url("../../fonts/Pretendard-Light.woff") format("woff"), url("../../fonts/Pretendard-Light.otf") format("opentype");
-}
-@font-face {
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../../fonts/Pretendard-Regular.woff2") format("font-woff2"), url("../../fonts/Pretendard-Regular.woff") format("woff"), url("../../fonts/Pretendard-Regular.otf") format("opentype");
-}
-@font-face {
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  src: url("../../fonts/Pretendard-Medium.woff2") format("font-woff2"), url("../../fonts/Pretendard-Medium.woff") format("woff"), url("../../fonts/Pretendard-Medium.otf") format("opentype");
-}
-@font-face {
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 600;
-  src: url("../../fonts/Pretendard-SemiBold.woff2") format("font-woff2"), url("../../fonts/Pretendard-SemiBold.woff") format("woff"), url("../../fonts/Pretendard-SemiBold.otf") format("opentype");
-}
-@font-face {
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../../fonts/Pretendard-Bold.woff2") format("font-woff2"), url("../../fonts/Pretendard-Bold.woff") format("woff"), url("../../fonts/Pretendard-Bold.otf") format("opentype");
-}
-/* Poppins */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../../fonts/Poppins-Regular.woff2") format("font-woff2"), url("../../fonts/Poppins-Regular.woff") format("woff"), url("../../fonts/Poppins-Regular.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  src: url("../../fonts/Poppins-Medium.woff2") format("font-woff2"), url("../../fonts/Poppins-Medium.woff") format("woff"), url("../../fonts/Poppins-Medium.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../../fonts/Poppins-SemiBold.woff2") format("font-woff2"), url("../../fonts/Poppins-SemiBold.woff") format("woff"), url("../../fonts/Poppins-SemiBold.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../../fonts/Poppins-Bold.woff2") format("font-woff2"), url("../../fonts/Poppins-Bold.woff") format("woff"), url("../../fonts/Poppins-Bold.ttf") format("truetype");
-}
 html,
 body,
 div,
@@ -251,6 +197,9 @@ footer {
 .footer-con nav .social-con a img {
   width: 2rem;
 }
+.footer-con p {
+  line-height: 1.5;
+}
 
 header {
   padding: 1.25rem 0;
@@ -295,6 +244,53 @@ header {
 }
 .header-con nav img {
   width: 2rem;
+}
+
+.product-gallery {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 0 180px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+.product-gallery .product-con .product-thumb {
+  width: 380px;
+  height: 380px;
+}
+.product-gallery .product-con .product-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+}
+.product-gallery .product-con .product-info {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #222;
+}
+.product-gallery .product-con .product-info .sub-title {
+  color: #767676;
+  font-size: 1rem;
+}
+.product-gallery .product-con .product-info .main-title {
+  font-size: 1.25rem;
+}
+.product-gallery .product-con .product-info .product-price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  position: relative;
+}
+.product-gallery .product-con .product-info .product-price::after {
+  content: "원";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  padding-left: 2px;
 }
 
 .login-cite {
