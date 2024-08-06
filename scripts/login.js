@@ -39,3 +39,45 @@ async function login(id, pw, login_type) {
     } catch (error) {}
 }
 document.querySelector('button').addEventListener('click', login);
+
+// 비로그인 상태일 때 로그인 페이지로 이동
+document.addEventListener('DOMContentLoaded', function () {
+    const cartBtn = document.querySelector('.cart');
+
+    cartBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        if (isLoggedIn()) {
+            window.location.href = '/cart.html';
+        } else {
+            // 로그인 요청 모달 디스플레이 논 해제
+        }
+    });
+});
+
+async function isLoggedIn() {
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+        return false;
+    }
+
+    try {
+        const response = await fetch('/api/verify-token', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        if (response.ok) {
+            return true;
+        } else {
+            // 토큰이 유효하지 않으면 로컬 스토리지에서 제거
+            localStorage.removeItem('jwtToken');
+            return false;
+        }
+    } catch (error) {
+        console.error('Token verification failed:', error);
+        return false;
+    }
+}

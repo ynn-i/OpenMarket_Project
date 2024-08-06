@@ -54,3 +54,57 @@
         }
     }
 }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal-con {
+    max-width: 360px;
+    height: auto;
+    width: 100%;
+    padding: 50px 0 40px 0;
+    background-color: $white;
+    text-align: center;
+    position: relative;
+
+    p {
+        padding-bottom: 24px;
+        line-height: 1.4;
+    }
+
+    .btn-con {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    button {
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        font-weight: 500;
+    }
+    .no-btn {
+        color: $gray-76;
+        border: 1px solid $gray-c4;
+    }
+    .yes-btn {
+        color: $white;
+        background-color: $primary-color;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+    }
+}
