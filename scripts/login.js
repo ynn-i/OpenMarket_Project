@@ -1,16 +1,16 @@
 // 아이디 비밀번호 검증 및 로그인
 async function login(id, pw, login_type) {
     const buyerTab = document.getElementById('login-tab').checked;
-    const id = document.getElementById('id').value.trim();
-    const pw = document.getElementById('pw').value.trim();
+    const ID = document.getElementById('id').value.trim();
+    const PW = document.getElementById('pw').value.trim();
     const error = document.querySelector('.error');
     let errorMessage = '';
 
-    if (id === '' && pw === '') {
+    if (ID === '' && PW === '') {
         errorMessage = '아이디와 비밀번호를 입력해 주세요.';
-    } else if (id === '') {
+    } else if (ID === '') {
         errorMessage = '아이디를 입력해 주세요.';
-    } else if (pw === '') {
+    } else if (PW === '') {
         errorMessage = '비밀번호를 입력해 주세요.';
     }
     if (errorMessage) {
