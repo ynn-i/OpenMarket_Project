@@ -1,4 +1,6 @@
 main {
+    max-width: 1280px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +13,6 @@ main {
 }
 
 .cart-title {
-    max-width: 1280px;
     width: 100%;
     padding: 1.25rem 1.75rem;
     display: flex;
@@ -22,35 +23,154 @@ main {
     border-radius: 10px;
     text-align: center;
 
-    .check {
-        label {
-            &::before {
-                content: '';
-                width: 20px;
-                height: 20px;
-                background: url('../../../assets/icons/icon-check.svg') no-repeat center;
-                background-size: 20px 20px;
-                display: block;
-            }
-        }
-
-        input[type='checkbox'] {
-            display: none;
-
-            &:checked + label::before {
-                background: url('../../../assets/icons/icon-checked.svg') no-repeat center;
-                background-size: 20px 20px;
-                display: block;
-            }
-        }
-    }
     .info {
-        width: 100%;
+        flex-grow: 1;
     }
     .count {
         width: 260px;
     }
     .price {
         width: 260px;
+    }
+}
+
+.cart-list {
+    width: 100%;
+    margin: 35px 0 0 0;
+
+    li {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 1.25rem 1.75rem;
+        display: flex;
+        align-items: center;
+        gap: 1.75rem;
+        position: relative;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+
+        .product-cart {
+            flex-grow: 1;
+            display: flex;
+            gap: 36px;
+
+            .product-thumb-cart {
+                width: 160px;
+                height: 160px;
+                border-radius: 10px;
+            }
+
+            .info-con {
+                padding: 6px 0 16px 0;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .sub-title {
+                    color: $gray-76;
+                    font-size: 14px;
+                }
+
+                .main-title {
+                    font-size: 18px;
+                }
+
+                .product-price {
+                    height: 100%;
+                    font-weight: 600;
+                }
+
+                .delivery {
+                    color: $gray-76;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .counter-con {
+            width: 260px;
+        }
+
+        .product-cost {
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 26px;
+
+            .cost {
+                color: $red;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            button {
+                padding: 10px 36px;
+                color: $white;
+                background-color: $primary-color;
+                border-radius: 5px;
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+        }
+    }
+}
+
+.check {
+    label {
+        &::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: url('../../assets/icons/icon-check.svg') no-repeat center;
+            background-size: 20px 20px;
+            display: block;
+        }
+    }
+
+    input[type='checkbox'] {
+        display: none;
+
+        &:checked + label::before {
+            background: url('../../assets/icons/icon-checked.svg') no-repeat center;
+            background-size: 20px 20px;
+            display: block;
+        }
+    }
+}
+
+.counter-con {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .counter {
+        width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        border: 1px solid $gray-c4;
+
+        img {
+            padding: 1rem;
+        }
+        div {
+            width: 100%;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border-left: 1px solid $gray-c4;
+            border-right: 1px solid $gray-c4;
+        }
     }
 }
