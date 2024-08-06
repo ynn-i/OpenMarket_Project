@@ -44,8 +44,9 @@ document.querySelector('button').addEventListener('click', login);
 // ----------
 // 장바구니 아이콘으로 로그인 모달창 띄우기
 const openLoginBtn = document.querySelector('.cart');
-const closeLoginBtn = document.querySelector('.close-btn');
 const LoginModal = document.querySelector('.modal');
+const closeLoginBtn = document.querySelector('.close-btn');
+const noLoginBtn = document.querySelector('.no-btn');
 const moveLoginBtn = document.querySelector('.yes-btn');
 
 function openModal(event) {
