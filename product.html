@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HODU</title>
+        <link rel="stylesheet" href="./styles/css/main.css" />
+    </head>
+    <body>
+        <header>
+            <div class="header-con">
+                <a href="./index.html">
+                    <h1><img src="./assets/images/Logo-hodu.svg" alt="호두 오픈마켓" /></h1
+                ></a>
+                <form>
+                    <label class="sr-only" for="search"></label>
+                    <input type="text" id="search" placeholder="상품을 검색해보세요!" />
+                    <img src="./assets/icons/search.svg" alt="" />
+                </form>
+                <nav>
+                    <a class="nav-con cart" href=""><img src="./assets/icons/icon-shopping-cart.svg" alt="" />장바구니</a>
+                    <a class="nav-con" href=""><img src="./assets/icons/icon-user.svg" alt="" />마이페이지</a>
+                    <a class="hidden" href="./assets/icons/icon-shopping-bag.svg"><img src="" alt="" />판매자센터</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section class="product-detail">
+                <img src="./assets/images/404.png" alt="" />
+                <div class="product-detail-info">
+                    <div class="detail-info">
+                        <p class="store-info">store name</p>
+                        <p class="product-info">product name</p>
+                        <p class="price-info">price</p>
+                        <p class="delivery-info">delivery</p>
+                    </div>
+                    <div class="product-counter-con">
+                        <div class="counter">
+                            <img src="./assets/icons/icon-minus.svg" alt="" />
+                            <div><span>1</span></div>
+                            <img src="./assets/icons/icon-plus.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cost-result-info">
+                        <p class="cost-info">총 상품 금액</p>
+                        <p class="count-result">총 수량 <span>2</span>개</p>
+                        <p class="cost-result">17000</p>
+                    </div>
+                    <div class="btn-con">
+                        <button class="purchase-btn">바로 구매</button>
+                        <button class="cart-btn">장바구니</button>
+                    </div>
+                </div>
+            </section>
+            <section class="info-con">
+                <div class="tab-btn-con">
+                    <button class="tab-btn" aria-selected="true">상품 정보</button>
+                    <button class="tab-btn" aria-selected="false">리뷰</button>
+                    <button class="tab-btn" aria-selected="false">Q&A</button>
+                    <button class="tab-btn" aria-selected="false">반품/교환정보</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer-con">
+                <nav>
+                    <div class="info-con">
+                        <a href="">호두샵 소개</a><a href="">이용약관</a><a href=""><strong>개인정보처리방침</strong></a
+                        ><a href="">전자금융거래약관</a><a href="">청소년보호정책</a><a href="">제휴문의</a>
+                    </div>
+                    <div class="social-con">
+                        <a href=""><img src="./assets/icons/icon-insta.svg" alt="" /></a>
+                        <a href=""><img src="./assets/icons/icon-fb.svg" alt="" /></a>
+                        <a href=""><img src="./assets/icons/icon-yt.svg" alt="" /></a>
+                    </div>
+                </nav>
+                <p><strong>(주)HODU SHOP</strong><br />제주특별자치도 제주시 동광고 137 제주코딩베이스캠프<br />사업자 번호 : 000-0000-0000 | 통신판매업<br />대표 : 김호두<></p>
+            </div>
+        </footer>
+        <script src="./scripts/product.js"></script>
+    </body>
+</html>

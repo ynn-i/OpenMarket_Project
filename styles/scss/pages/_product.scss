@@ -1,0 +1,175 @@
+.product-detail {
+    width: 100%;
+    padding: 80px 0 140px 0;
+    display: flex;
+    gap: 50px;
+
+    img {
+        width: 600px;
+        height: 600px;
+        object-fit: cover;
+    }
+
+    .product-detail-info {
+        width: 100%;
+
+        .detail-info {
+            display: flex;
+            flex-direction: column;
+
+            .store-info {
+                color: $gray-76;
+                font-size: 18px;
+            }
+
+            .product-info {
+                padding-top: 16px;
+                font-size: 36px;
+            }
+
+            .price-info {
+                padding-top: 20px;
+                font-size: 36px;
+                font-weight: 600;
+
+                &::after {
+                    content: '원';
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+            }
+
+            .delivery-info {
+                padding: 138px 0 20px 0;
+                color: $gray-76;
+                font-size: 16px;
+            }
+        }
+
+        .product-counter-con {
+            padding: 30px 0 30px 0;
+            border-top: 1px solid $gray-c4;
+            border-bottom: 1px solid $gray-c4;
+
+            .counter {
+                width: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px;
+                border: 1px solid $gray-c4;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                    margin: 1rem;
+                }
+                div {
+                    width: 100%;
+                    height: 52px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 18px;
+                    border-left: 1px solid $gray-c4;
+                    border-right: 1px solid $gray-c4;
+                }
+            }
+        }
+
+        .cost-result-info {
+            padding: 32px 0 24px 0;
+            display: flex;
+            align-items: center;
+
+            .cost-info {
+                flex-grow: 1;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .count-result {
+                font-size: 18px;
+                font-weight: 400;
+                color: $gray-76;
+
+                span {
+                    font-weight: 600;
+                    color: $primary-color;
+                }
+            }
+            .cost-result {
+                padding-left: 12px;
+                margin-left: 12px;
+                font-size: 36px;
+                font-weight: 600;
+                color: $primary-color;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    top: 50%;
+                    left: 0;
+                    width: 1px;
+                    height: 18px;
+                    position: absolute;
+                    transform: translateY(-50%);
+                    background-color: $gray-c4;
+                }
+
+                &::after {
+                    content: '원';
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+            }
+        }
+        .btn-con {
+            display: flex;
+            gap: 1rem;
+
+            button {
+                height: 60px;
+                font-size: 18px;
+                font-weight: 600;
+                color: $white;
+                border-radius: 5px;
+            }
+
+            .purchase-btn {
+                width: 70%;
+                background-color: $primary-color;
+            }
+
+            .cart-btn {
+                width: 30%;
+                background-color: $gray-76;
+            }
+        }
+    }
+}
+
+.info-con {
+    width: 100%;
+
+    .tab-btn-con {
+        width: 100%;
+        display: flex;
+
+        .tab-btn {
+            width: 100%;
+            margin-bottom: 100px;
+            padding: 18px 0;
+            color: $gray-76;
+            font-size: 18px;
+            border-bottom: 6px solid $gray-e0;
+
+            &[aria-selected='true'] {
+                color: $primary-color;
+                border-bottom: 6px solid $primary-color;
+                font-weight: 600;
+            }
+        }
+    }
+}
