@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HODU</title>
+        <link rel="stylesheet" href="./styles/css/main.css" />
+    </head>
+    <body>
+        <header>
+            <div class="header-con">
+                <a href="./index.html">
+                    <h1><img src="./assets/images/Logo-hodu.svg" alt="호두 오픈마켓" /></h1
+                ></a>
+                <form>
+                    <label class="sr-only" for="search"></label>
+                    <input type="text" id="search" placeholder="상품을 검색해보세요!" />
+                    <img src="./assets/icons/search.svg" alt="" />
+                </form>
+                <nav>
+                    <a class="nav-con cart" href=""><img src="./assets/icons/icon-shopping-cart.svg" alt="" />장바구니</a>
+                    <a class="nav-con" href=""><img src="./assets/icons/icon-user.svg" alt="" />마이페이지</a>
+                    <a class="hidden" href="./assets/icons/icon-shopping-bag.svg"><img src="" alt="" />판매자센터</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h2>주문/결제하기</h2>
+            <ul class="payment-title">
+                <li class="info">상품정보</li>
+                <li>할인</li>
+                <li>배송비</li>
+                <li>주문금액</li>
+            </ul>
+            <ul class="payment-list">
+                <li>
+                    <div class="product-payment">
+                        <div class="product-con">
+                            <img class="product-thumb-cart" src="./assets/images/Logo-hodu.svg" alt="" />
+                            <div class="info-con">
+                                <p class="sub-title">TEXT</p>
+                                <p class="main-title">TEXT</p>
+                                <p class="product-count">TEXT</p>
+                            </div>
+                        </div>
+                        <div class="sale"><span>TEXT</span></div>
+                        <div class="delivery"><span>TEXT</span></div>
+                        <div class="cost"><span>TEXT</span></div>
+                    </div>
+                </li>
+            </ul>
+            <p class="all-cost">TEXT<span>TEXT</span></p>
+            <section class="delivery-con">
+                <h3>배송 정보</h3>
+                <form action="">
+                    <div class="sender-con">
+                        <p>주문자 정보</p>
+                        <div class="inp-con">
+                            <label for="senderName">이름</label>
+                            <input type="text" name="" id="senderName" />
+                        </div>
+                        <div class="inp-con">
+                            <label for="senderTel">휴대폰</label>
+                            <input type="text" name="" id="senderTel" />
+                        </div>
+                        <div class="inp-con">
+                            <label for="senderEmail">이메일</label>
+                            <input type="text" name="" id="senderEmail" />
+                        </div>
+                    </div>
+                    <div class="reciver-con">
+                        <p>배송지 정보</p>
+                        <div class="inp-con">
+                            <label for="receiverName">수령인</label>
+                            <input type="text" name="" id="receiverName" />
+                        </div>
+                        <div class="inp-con">
+                            <label for="receiverTel">휴대폰</label>
+                            <input type="text" name="" id="receiverTel" />
+                        </div>
+                        <div class="inp-con">
+                            <label for="receiverAddress">배송주소</label>
+                            <input type="text" name="" id="receiverAddress" />
+                        </div>
+                        <div class="inp-con">
+                            <label for="receiverMessage">배송 메시지</label>
+                            <input type="text" name="" id="receiverMessage" />
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <div class="pay-container">
+                <section class="pay-con">
+                    <h3>결제수단</h3>
+                    <form action="">
+                        <input type="radio" name="" id="" />
+                        <label for="">신용/체크카드</label>
+                        <input type="radio" name="" id="" />
+                        <label for="">무통장입금</label>
+                        <input type="radio" name="" id="" />
+                        <label for="">휴대폰 결제</label>
+                        <input type="radio" name="" id="" />
+                        <label for="">네이버페이</label>
+                        <input type="radio" name="" id="" />
+                        <label for="">카카오페이</label>
+                    </form>
+                </section>
+                <section class="pay-info-con">
+                    <h3>최종결제 정보</h3>
+                    <div class="cost-result-con">
+                        <ul class="cost-info">
+                            <li>- 상품금액 <span>10000</span></li>
+                            <li>- 할인금액 <span>10000</span></li>
+                            <li>- 배송비 <span>10000</span></li>
+                            <li>- 결제금액 <span>10000</span></li>
+                        </ul>
+                        <div class="check-con">
+                            <input class="hidden" type="checkbox" name="" id="" />
+                            <label for="">주문 내용을 확인하였으며, 정보 제공 등에 동의합니다.</label>
+                            <button>결제하기</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-con">
+                <nav>
+                    <div class="info-con">
+                        <a href="">호두샵 소개</a><a href="">이용약관</a><a href=""><strong>개인정보처리방침</strong></a
+                        ><a href="">전자금융거래약관</a><a href="">청소년보호정책</a><a href="">제휴문의</a>
+                    </div>
+                    <div class="social-con">
+                        <a href=""><img src="./assets/icons/icon-insta.svg" alt="" /></a>
+                        <a href=""><img src="./assets/icons/icon-fb.svg" alt="" /></a>
+                        <a href=""><img src="./assets/icons/icon-yt.svg" alt="" /></a>
+                    </div>
+                </nav>
+                <p><strong>(주)HODU SHOP</strong><br />제주특별자치도 제주시 동광고 137 제주코딩베이스캠프<br />사업자 번호 : 000-0000-0000 | 통신판매업<br />대표 : 김호두<></p>
+            </div>
+        </footer>
+    </body>
+</html>
