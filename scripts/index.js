@@ -69,7 +69,8 @@ function closeModal() {
 function handleLoginModal(event) {
     const token = localStorage.getItem('token');
     if (token) {
-        window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/cart.html';
+        alert('Redirecting to cart page');
+        window.location.assign('https://ynn-i.github.io/OpenMarket_Project/cart.html');
     } else {
         openModal(event);
     }
