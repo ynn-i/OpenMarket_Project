@@ -69,21 +69,14 @@ function closeModal() {
 function handleLoginModal(event) {
     const token = localStorage.getItem('token');
     if (token) {
-        window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/cart.html';
+        openLoginBtn.href = 'https://ynn-i.github.io/OpenMarket_Project/cart.html';
     } else {
         openModal(event);
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // openLoginBtn.addEventListener('click', handleLoginModal);
-
-    if (openLoginBtn) {
-        openLoginBtn.addEventListener('click', handleLoginModal);
-        console.log('이벤트 추가');
-    } else {
-        console.log('연결X');
-    }
+    openLoginBtn.addEventListener('click', handleLoginModal);
 
     closeLoginBtn.addEventListener('click', closeModal);
     noLoginBtn.addEventListener('click', closeModal);
