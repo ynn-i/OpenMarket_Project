@@ -4,18 +4,28 @@
     display: flex;
     gap: 50px;
 
-    img {
-        width: 600px;
-        height: 600px;
-        object-fit: cover;
+    .product-detail-img-con {
+        max-width: 600px;
+        max-height: 600px;
+        overflow: hidden;
+
+        .product-detail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
     .product-detail-info {
         width: 100%;
+        display: flex;
+        flex-direction: column;
 
         .detail-info {
             display: flex;
             flex-direction: column;
+            flex-grow: 1;
+            position: relative;
 
             .store-info {
                 color: $gray-76;
@@ -31,6 +41,7 @@
                 padding-top: 20px;
                 font-size: 36px;
                 font-weight: 600;
+                line-height: 1;
 
                 &::after {
                     content: '원';
@@ -40,9 +51,11 @@
             }
 
             .delivery-info {
-                padding: 138px 0 20px 0;
+                padding: 0 0 20px 0;
                 color: $gray-76;
                 font-size: 16px;
+                position: absolute;
+                bottom: 0;
             }
         }
 
