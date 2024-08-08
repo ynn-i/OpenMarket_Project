@@ -70,7 +70,7 @@ function handleLoginModal(event) {
     const token = localStorage.getItem('token');
     if (token) {
         alert('Redirecting to cart page');
-        window.location.assign('https://ynn-i.github.io/OpenMarket_Project/cart.html');
+        window.location.href = '/cart.html';
     } else {
         openModal(event);
     }
