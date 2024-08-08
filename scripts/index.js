@@ -66,8 +66,18 @@ function closeModal() {
     LoginModal.classList.add('hidden');
 }
 
+function handleLoginModal(event) {
+    const token = localStorage.getItem('token');
+    if (token) {
+        window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/cart.html';
+    } else {
+        openModal(event);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    openLoginBtn.addEventListener('click', openModal);
+    openLoginBtn.addEventListener('click', handleLoginModal);
+
     closeLoginBtn.addEventListener('click', closeModal);
     noLoginBtn.addEventListener('click', closeModal);
     LoginModal.addEventListener('click', function (event) {
