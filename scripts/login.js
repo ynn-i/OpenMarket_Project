@@ -1,6 +1,6 @@
 // 아이디 비밀번호 검증 및 로그인
 async function login(id, pw, login_type) {
-    const buyerTab = document.getElementById('login-tab').checked;
+    const loginType = document.getElementById('login-tab').checked;
     const ID = document.getElementById('id').value.trim();
     const PW = document.getElementById('pw').value.trim();
     const error = document.querySelector('.error');
@@ -26,7 +26,7 @@ async function login(id, pw, login_type) {
             body: JSON.stringify({
                 username: id,
                 password: pw,
-                login_type: login_type,
+                login_type: loginType ? 'SELLER' : 'BUYER',
             }),
         });
         const data = await req.json();
@@ -37,9 +37,13 @@ async function login(id, pw, login_type) {
         } else {
             errorMessage = '아이디 또는 비밀번호가 일치하지 않습니다.';
         }
-    } catch (error) {}
+    } catch (error) {
+        alert('로그인에 실패하였습니다. 다시 시도해주세요.');
+    }
 }
-document.querySelector('button').addEventListener('click', login);
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.login-btn').addEventListener('click', login);
+});
 
 // ----------
 // 장바구니 아이콘으로 로그인 모달창 띄우기
@@ -57,16 +61,18 @@ function closeModal() {
     LoginModal.classList.add('hidden');
 }
 
-openLoginBtn.addEventListener('click', openModal);
-closeLoginBtn.addEventListener('click', closeModal);
-noLoginBtn.addEventListener('click', closeModal);
-LoginModal.addEventListener('click', function (event) {
-    if (event.target === LoginModal) {
-        closeModal();
-    }
-});
+document.addEventListener('DOMContentLoaded', () => {
+    openLoginBtn.addEventListener('click', openModal);
+    closeLoginBtn.addEventListener('click', closeModal);
+    noLoginBtn.addEventListener('click', closeModal);
+    LoginModal.addEventListener('click', function (event) {
+        if (event.target === LoginModal) {
+            closeModal();
+        }
+    });
 
-// 로그인 페이지로 이동하기
-moveLoginBtn.addEventListener('click', function () {
-    window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
+    // 로그인 페이지로 이동하기
+    moveLoginBtn.addEventListener('click', function () {
+        window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
+    });
 });
