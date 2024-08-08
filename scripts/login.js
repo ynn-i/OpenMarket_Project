@@ -15,10 +15,13 @@ async function login(event) {
 
     if (ID === '' && PW === '') {
         errorMessage = '아이디와 비밀번호를 입력해 주세요.';
+        document.getElementById('id').focus();
     } else if (ID === '') {
         errorMessage = '아이디를 입력해 주세요.';
+        document.getElementById('id').focus();
     } else if (PW === '') {
         errorMessage = '비밀번호를 입력해 주세요.';
+        document.getElementById('pw').focus();
     }
 
     if (errorMessage) {
@@ -40,14 +43,17 @@ async function login(event) {
         const data = await req.json();
         console.log('Response data:', data);
 
-        if (req.ok && data.token) {
+        if (req.success && data.token) {
             console.log('Login successful!');
             localStorage.setItem('token', data.token);
-            window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/';
+            window.history.back();
         } else {
             errorMessage = data.message || '아이디 또는 비밀번호가 일치하지 않습니다.';
             error.textContent = errorMessage;
             error.style.setProperty('display', 'block', 'important');
+            document.getElementById('id').focus();
+            document.getElementById('id').value = '';
+            document.getElementById('pw').value = '';
         }
     } catch (error) {
         alert('로그인에 실패하였습니다. 다시 시도해주세요.');

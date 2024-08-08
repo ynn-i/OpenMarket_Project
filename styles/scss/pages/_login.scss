@@ -64,6 +64,10 @@
             &::placeholder {
                 color: $gray-76;
             }
+
+            &:focus {
+                border-bottom: 1px solid $black;
+            }
         }
         .error {
             padding: 1.5rem 0;

@@ -400,6 +400,9 @@ header {
 .tabs-con form input::placeholder {
   color: #767676;
 }
+.tabs-con form input:focus {
+  border-bottom: 1px solid #222;
+}
 .tabs-con form .error {
   padding: 1.5rem 0;
   color: #eb5757;
