@@ -3,6 +3,8 @@ const createProductUi = (productData) => {
     const productGallery = document.querySelector('.product-gallery');
     const productCon = document.createElement('div');
     productCon.classList.add('product-con');
+    productCon.setAttribute('data-id', productData.product_id);
+
     const productThumb = document.createElement('div');
     productThumb.classList.add('product-thumb');
     const productImage = document.createElement('img');
@@ -22,7 +24,6 @@ const createProductUi = (productData) => {
     const productPriceUnit = document.createElement('span');
     productPriceUnit.classList.add('product-price-unit');
 
-    // $todoText.textContent = todoData.todo;
     productGallery.appendChild(productCon);
     productCon.appendChild(productThumb);
     productThumb.appendChild(productImage);
@@ -31,6 +32,11 @@ const createProductUi = (productData) => {
     productInfo.appendChild(productMainTitle);
     productInfo.appendChild(productPrice);
     productPrice.appendChild(productPriceUnit);
+
+    // 재품 상세페이지로 이동하기
+    productCon.addEventListener('click', () => {
+        window.location.href = `/product.html?product_id=${productData.product_id}`;
+    });
 };
 
 const getProducts = async () => {
