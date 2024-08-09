@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 로그인 페이지로 이동하기
     moveLoginBtn.addEventListener('click', function () {
         window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
+        closeModal();
     });
     LOGIN.addEventListener('click', GOLOGIN);
 });

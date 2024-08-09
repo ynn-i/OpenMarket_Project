@@ -43,12 +43,13 @@ async function login(event) {
         if (req.ok && data.token) {
             console.log('Login successful!');
             localStorage.setItem('token', data.token);
+            window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/';
 
-            if (window.history.length > 1) {
-                window.history.back();
-            } else {
-                window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/';
-            }
+            // if (window.history.length > 1) {
+            //     window.history.back();
+            // } else {
+            //     window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/';
+            // }
         } else {
             errorMessage = data.message || '아이디 또는 비밀번호가 일치하지 않습니다.';
             error.textContent = errorMessage;
