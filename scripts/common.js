@@ -5,6 +5,7 @@ const LoginModal = document.querySelector('.modal');
 const closeLoginBtn = document.querySelector('.close-btn');
 const noLoginBtn = document.querySelector('.no-btn');
 const moveLoginBtn = document.querySelector('.yes-btn');
+const LOGIN = document.querySelector('.login');
 
 function openModal(event) {
     event.preventDefault();
@@ -24,6 +25,16 @@ function handleLoginModal(event) {
     }
 }
 
+// 임시 로그인 링크 생성
+function GOLOGIN(event) {
+    event.preventDefault();
+    const token = localStorage.getItem('token');
+    if (token) {
+        window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
+    } else {
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     openLoginBtn.addEventListener('click', handleLoginModal);
 
@@ -36,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 로그인 페이지로 이동하기
-    moveLoginBtn.addEventListener('click', function () {
-        window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
-    });
+    moveLoginBtn.addEventListener('click', handleLoginModal);
+    LOGIN.addEventListener('click', GOLOGIN);
 });
