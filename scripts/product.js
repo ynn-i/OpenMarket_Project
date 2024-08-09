@@ -47,7 +47,7 @@ const createProductDetailUi = (productData) => {
     counterMinus.src = './assets/icons/icon-minus.svg';
     const counterNumCon = document.createElement('div');
     const counterNum = document.createElement('span');
-    counterNum.textContent = count;
+    // counterNum.textContent = count;
     const counterPlus = document.createElement('img');
     counterPlus.classList.add('icon-plus');
     counterPlus.src = './assets/icons/icon-plus.svg';
@@ -97,16 +97,15 @@ const createProductDetailUi = (productData) => {
     btnCon.appendChild(purchaseBtn);
     btnCon.appendChild(cartBtn);
 
-    // 카운터 기능 초기화
-    initializeCounter(price, countResult, minusBtn, plusBtn, costResult);
+    initializeCounter(productData.price, counterNum, counterMinus, counterPlus, costResult);
 };
 
 // 카운터 기능 구현
-const initializeCounter = (price, countResult, minusBtn, plusBtn, costResult) => {
+const initializeCounter = (price, counterNum, minusBtn, plusBtn, costResult) => {
     let count = 1;
     const updateDisplay = () => {
-        countResult.textContent = count;
-        costResult.textContent = `${(count * price).toLocaleString()}`;
+        counterNum.textContent = count;
+        costResult.textContent = `${(count * price).toLocaleString()}원`;
     };
     const increase = () => {
         count++;
@@ -136,12 +135,14 @@ const initProductDetailPage = async () => {
     }
 };
 
-document.addEventListener('DOMContentLoaded', initProductDetailPage);
+document.addEventListener('DOMContentLoaded', () => {
+    initProductDetailPage();
 
-// 상세 정보 탭
-document.querySelectorAll('.tab-btn').forEach((tab) => {
-    tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach((t) => t.setAttribute('aria-selected', 'false'));
-        tab.setAttribute('aria-selected', 'true');
+    // 상세 정보 탭
+    document.querySelectorAll('.tab-btn').forEach((tab) => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach((t) => t.setAttribute('aria-selected', 'false'));
+            tab.setAttribute('aria-selected', 'true');
+        });
     });
 });
