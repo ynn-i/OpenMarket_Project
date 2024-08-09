@@ -1,12 +1,4 @@
-document.querySelectorAll('.tab-btn').forEach((tab) => {
-    tab.addEventListener('click', () => {
-        // 모든 탭의 선택 상태 해제
-        document.querySelectorAll('.tab-btn').forEach((t) => t.setAttribute('aria-selected', 'false'));
-        // 클릭된 탭의 선택 상태 설정
-        tab.setAttribute('aria-selected', 'true');
-    });
-});
-
+// 제품 id를 통해 해당 제품 상세페이지 구현하기
 const getProductIdFromUrl = () => {
     const productId = new URLSearchParams(window.location.search);
     return productId.get('product_id');
@@ -119,5 +111,12 @@ const initProductDetailPage = async () => {
     }
 };
 
-// 페이지가 로드되면 제품 상세 페이지를 초기화합니다.
 document.addEventListener('DOMContentLoaded', initProductDetailPage);
+
+// 상세 정보 탭
+document.querySelectorAll('.tab-btn').forEach((tab) => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach((t) => t.setAttribute('aria-selected', 'false'));
+        tab.setAttribute('aria-selected', 'true');
+    });
+});
