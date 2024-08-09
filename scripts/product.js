@@ -47,7 +47,6 @@ const createProductDetailUi = (productData) => {
     counterMinus.src = './assets/icons/icon-minus.svg';
     const counterNumCon = document.createElement('div');
     const counterNum = document.createElement('span');
-    // counterNum.textContent = count;
     const counterPlus = document.createElement('img');
     counterPlus.classList.add('icon-plus');
     counterPlus.src = './assets/icons/icon-plus.svg';
@@ -60,6 +59,8 @@ const createProductDetailUi = (productData) => {
     // 상품 수량 정보 수정 예정
     const countResult = document.createElement('p');
     countResult.classList.add('count-result');
+    countResult.textContent = '총 수량';
+    const countResultNum = document.createElement('span');
     // 총 금액 정보 수정 예정
     const costResult = document.createElement('p');
     costResult.classList.add('cost-result');
@@ -92,20 +93,22 @@ const createProductDetailUi = (productData) => {
     productDetailInfo.appendChild(costResultInfo);
     costResultInfo.appendChild(costInfo);
     costResultInfo.appendChild(countResult);
+    countResult.appendChild(countResultNum);
     costResultInfo.appendChild(costResult);
     productDetailInfo.appendChild(btnCon);
     btnCon.appendChild(purchaseBtn);
     btnCon.appendChild(cartBtn);
 
-    initializeCounter(productData.price, counterNum, counterMinus, counterPlus, costResult);
+    initializeCounter(productData.price, counterNum, counterMinus, counterPlus, costResult, countResultNum);
 };
 
 // 카운터 기능 구현
-const initializeCounter = (price, counterNum, minusBtn, plusBtn, costResult) => {
+const initializeCounter = (price, counterNum, minusBtn, plusBtn, costResult, countResultNum) => {
     let count = 1;
     const updateDisplay = () => {
         counterNum.textContent = count;
-        costResult.textContent = `${(count * price).toLocaleString()}원`;
+        countResultNum.textContent = `${count}`;
+        costResult.textContent = `${(count * price).toLocaleString()}`;
     };
     const increase = () => {
         count++;

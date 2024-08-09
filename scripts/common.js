@@ -24,16 +24,15 @@ function handleLoginModal(event) {
         openModal(event);
     }
 }
-window.onload = function () {
-    document.addEventListener('DOMContentLoaded', () => {
-        openLoginBtn.addEventListener('click', handleLoginModal);
 
-        noLoginBtn.addEventListener('click', closeModal);
-        closeLoginBtn.addEventListener('click', closeModal);
-        LoginModal.addEventListener('click', function (event) {
-            if (event.target === LoginModal) {
-                closeModal();
-            }
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    openLoginBtn.addEventListener('click', handleLoginModal);
+
+    noLoginBtn.addEventListener('click', closeModal);
+    closeLoginBtn.addEventListener('click', closeModal);
+    LoginModal.addEventListener('click', function (event) {
+        if (event.target === LoginModal) {
+            closeModal();
+        }
     });
-};
+});
