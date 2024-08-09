@@ -28,11 +28,7 @@ function handleLoginModal(event) {
 // 임시 로그인 링크 생성
 function GOLOGIN(event) {
     event.preventDefault();
-    const token = localStorage.getItem('token');
-    if (token) {
-        window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
-    } else {
-    }
+    window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -47,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 로그인 페이지로 이동하기
-    moveLoginBtn.addEventListener('click', handleLoginModal);
+    moveLoginBtn.addEventListener('click', function () {
+        window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
+    });
     LOGIN.addEventListener('click', GOLOGIN);
 });
