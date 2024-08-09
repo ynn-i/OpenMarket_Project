@@ -19,7 +19,7 @@
                     <img src="./assets/icons/search.svg" alt="" />
                 </form>
                 <nav>
-                    <a class="nav-con" href="./cart.html"><img src="./assets/icons/icon-shopping-cart.svg" alt="" />장바구니</a>
+                    <a class="nav-con cart" href=""><img src="./assets/icons/icon-shopping-cart.svg" alt="" />장바구니</a>
                     <a class="nav-con" href=""><img src="./assets/icons/icon-user.svg" alt="" />마이페이지</a>
                     <a class="hidden" href="./assets/icons/icon-shopping-bag.svg"><img src="" alt="" />판매자센터</a>
                 </nav>
@@ -33,7 +33,7 @@
                 <li class="count">수량</li>
                 <li class="price">상품금액</li>
             </ul>
-            <ul class="cart-list hidden">
+            <ul class="cart-list">
                 <li>
                     <div class="check">
                         <label for=""></label>
@@ -90,5 +90,36 @@
                 <p class="sub-text">원하는 상품을 장바구니에 담아보세요!</p>
             </article>
         </main>
+        <footer>
+            <div class="footer-con">
+                <nav>
+                    <div class="info-con">
+                        <a href="">호두샵 소개</a><a href="">이용약관</a><a href=""><strong>개인정보처리방침</strong></a
+                        ><a href="">전자금융거래약관</a><a href="">청소년보호정책</a><a href="">제휴문의</a>
+                    </div>
+                    <div class="social-con">
+                        <a href=""><img src="./assets/icons/icon-insta.svg" alt="" /></a>
+                        <a href=""><img src="./assets/icons/icon-fb.svg" alt="" /></a>
+                        <a href=""><img src="./assets/icons/icon-yt.svg" alt="" /></a>
+                    </div>
+                </nav>
+                <p><strong>(주)HODU SHOP</strong><br />제주특별자치도 제주시 동광고 137 제주코딩베이스캠프<br />사업자 번호 : 000-0000-0000 | 통신판매업<br />대표 : 김호두<></p>
+            </div>
+        </footer>
+        <article class="modal hidden">
+            <div class="modal-con">
+                <p>
+                    로그인이 필요한 서비스입니다.<br />
+                    로그인 하시겠습니까?
+                </p>
+                <div class="btn-con">
+                    <button class="no-btn">아니오</button>
+                    <button class="yes-btn">예</button>
+                </div>
+                <img class="close-btn" src="./assets/icons/icon-delete.svg" alt="" />
+            </div>
+        </article>
+        <script src="./scripts/cart.js"></script>
+        <script src="./scripts/common.js"></script>
     </body>
 </html>

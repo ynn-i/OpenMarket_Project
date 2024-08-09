@@ -4,9 +4,6 @@ async function login(event) {
 
     const selectedRadio = document.querySelector('input[name="tabs"]:checked');
     const loginType = selectedRadio ? selectedRadio.value : 'BUYER';
-
-    console.log('Selected login type:', loginType); // 로그인 타입을 콘솔에 출력합니다.
-
     const ID = document.getElementById('id').value.trim();
     const PW = document.getElementById('pw').value.trim();
     const error = document.querySelector('.error');
@@ -43,10 +40,15 @@ async function login(event) {
         const data = await req.json();
         console.log('Response data:', data);
 
-        if (req.success && data.token) {
+        if (req.ok && data.token) {
             console.log('Login successful!');
             localStorage.setItem('token', data.token);
-            window.history.back();
+
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/';
+            }
         } else {
             errorMessage = data.message || '아이디 또는 비밀번호가 일치하지 않습니다.';
             error.textContent = errorMessage;
