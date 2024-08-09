@@ -9,6 +9,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     a h1 img {
         min-width: 7.75rem;
@@ -45,6 +46,33 @@ header {
         }
         img {
             width: 2rem;
+        }
+    }
+}
+
+.mypage-modal {
+    position: absolute;
+    width: 130px;
+    right: -42px;
+    top: 60px;
+    padding: 10px;
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: $white;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+    button {
+        padding: 10px 0;
+        color: $gray-76;
+        font-weight: 500;
+        border-radius: 5px;
+        border: 1px solid $white;
+
+        &:hover {
+            color: $black;
+            border: 1px solid $gray-76;
         }
     }
 }
