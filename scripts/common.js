@@ -85,15 +85,12 @@ logoutBtn.addEventListener('click', async () => {
                 sessionStorage.removeItem('userToken');
                 window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
             } else {
-                console.error('로그아웃 실패:', data.detail || '알 수 없는 오류 발생');
                 alert('로그아웃에 실패하였습니다.');
             }
         } else {
-            console.error('HTTP 상태 코드:', res.status);
             alert('로그아웃에 실패하였습니다.');
         }
     } catch (error) {
-        console.error('로그아웃 요청 실패:', error);
         alert('로그아웃에 실패하였습니다.');
     }
 });
