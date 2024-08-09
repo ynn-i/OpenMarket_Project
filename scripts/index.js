@@ -35,7 +35,7 @@ const createProductUi = (productData) => {
 
     // 재품 상세페이지로 이동하기
     productCon.addEventListener('click', () => {
-        window.location.href = `/product.html?product_id=${productData.product_id}`;
+        window.location.href = `https://ynn-i.github.io/OpenMarket_Project/product.html?product_id=${productData.product_id}`;
     });
 };
 
