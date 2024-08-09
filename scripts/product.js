@@ -56,7 +56,6 @@ const createProductDetailUi = (productData) => {
     const costInfo = document.createElement('p');
     costInfo.classList.add('cost-info');
     costInfo.textContent = '총 상품 금액';
-    // 상품 수량 정보 수정 예정
     const countResult = document.createElement('p');
     countResult.classList.add('count-result');
     countResult.textContent = '총 수량';
@@ -99,11 +98,11 @@ const createProductDetailUi = (productData) => {
     btnCon.appendChild(purchaseBtn);
     btnCon.appendChild(cartBtn);
 
-    initializeCounter(productData.price, counterNum, counterMinus, counterPlus, costResult, countResultNum);
+    initializeCounter(productData.price, counterNum, counterMinus, counterPlus, costResult, countResultNum, productData.stock);
 };
 
 // 카운터 기능 구현
-const initializeCounter = (price, counterNum, minusBtn, plusBtn, costResult, countResultNum) => {
+const initializeCounter = (price, counterNum, minusBtn, plusBtn, costResult, countResultNum, stock) => {
     let count = 1;
     const updateDisplay = () => {
         counterNum.textContent = count;
@@ -111,8 +110,12 @@ const initializeCounter = (price, counterNum, minusBtn, plusBtn, costResult, cou
         costResult.textContent = `${(count * price).toLocaleString()}`;
     };
     const increase = () => {
-        count++;
-        updateDisplay();
+        if (count < stock) {
+            count++;
+            updateDisplay();
+        } else {
+            console.log('재고 수량을 초과해서 선택할 수 없습니다.');
+        }
     };
     const decrease = () => {
         if (count > 1) {
