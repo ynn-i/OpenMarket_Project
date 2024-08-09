@@ -32,9 +32,9 @@ const createProductDetailUi = (productData) => {
     productInfo.textContent = productData.product_name;
     const priceInfo = document.createElement('p');
     priceInfo.classList.add('price-info');
-    const deliveryInfo = document.createElement('p');
-    // 배송방법 정보 수정 예정
     priceInfo.textContent = `${productData.price}`;
+    // 배송방법 정보 수정 예정
+    const deliveryInfo = document.createElement('p');
     deliveryInfo.classList.add('delivery-info');
     deliveryInfo.textContent = `${productData.shipping_method}`;
 
@@ -47,7 +47,7 @@ const createProductDetailUi = (productData) => {
     counterMinus.src = './assets/icons/icon-minus.svg';
     const counterNumCon = document.createElement('div');
     const counterNum = document.createElement('span');
-    counterNum.textContent = `${productData.stock}`;
+    counterNum.textContent = count;
     const counterPlus = document.createElement('img');
     counterPlus.classList.add('icon-plus');
     counterPlus.src = './assets/icons/icon-plus.svg';
@@ -60,7 +60,6 @@ const createProductDetailUi = (productData) => {
     // 상품 수량 정보 수정 예정
     const countResult = document.createElement('p');
     countResult.classList.add('count-result');
-    countResult.textContent = `총 수량 ${2}개`;
     // 총 금액 정보 수정 예정
     const costResult = document.createElement('p');
     costResult.classList.add('cost-result');
@@ -97,6 +96,32 @@ const createProductDetailUi = (productData) => {
     productDetailInfo.appendChild(btnCon);
     btnCon.appendChild(purchaseBtn);
     btnCon.appendChild(cartBtn);
+
+    // 카운터 기능 초기화
+    initializeCounter(price, countResult, minusBtn, plusBtn, costResult);
+};
+
+// 카운터 기능 구현
+const initializeCounter = (price, countResult, minusBtn, plusBtn, costResult) => {
+    let count = 1;
+    const updateDisplay = () => {
+        countResult.textContent = count;
+        costResult.textContent = `${(count * price).toLocaleString()}`;
+    };
+    const increase = () => {
+        count++;
+        updateDisplay();
+    };
+    const decrease = () => {
+        if (count > 1) {
+            count--;
+            updateDisplay();
+        }
+    };
+
+    minusBtn.addEventListener('click', decrease);
+    plusBtn.addEventListener('click', increase);
+    updateDisplay();
 };
 
 const initProductDetailPage = async () => {
