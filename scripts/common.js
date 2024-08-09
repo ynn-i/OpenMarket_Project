@@ -70,6 +70,7 @@ mypageModal.addEventListener('mouseleave', () => {
 
 // ----------
 // 로그아웃
+// 로그아웃
 logoutBtn.addEventListener('click', async () => {
     try {
         const res = await fetch('https://openmarket.weniv.co.kr/accounts/logout/', {
@@ -78,18 +79,20 @@ logoutBtn.addEventListener('click', async () => {
         });
         const data = await res.json();
 
-        // 응답 상태와 메시지를 검토합니다.
-        if (res.ok && data.message === 'Logged out successfully') {
-            localStorage.removeItem('userToken');
-            sessionStorage.removeItem('userToken');
-            window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
+        if (res.ok) {
+            if (data.detail === '로그아웃되었습니다.') {
+                localStorage.removeItem('userToken');
+                sessionStorage.removeItem('userToken');
+                window.location.href = 'https://ynn-i.github.io/OpenMarket_Project/login.html';
+            } else {
+                console.error('로그아웃 실패:', data.detail || '알 수 없는 오류 발생');
+                alert('로그아웃에 실패하였습니다.');
+            }
         } else {
-            // 응답의 상태 코드와 메시지를 콘솔에 출력하여 디버깅합니다.
-            console.error('로그아웃 실패:', data.message || '알 수 없는 오류 발생');
+            console.error('HTTP 상태 코드:', res.status);
             alert('로그아웃에 실패하였습니다.');
         }
     } catch (error) {
-        // 네트워크 오류 등을 콘솔에 출력하여 디버깅합니다.
         console.error('로그아웃 요청 실패:', error);
         alert('로그아웃에 실패하였습니다.');
     }
