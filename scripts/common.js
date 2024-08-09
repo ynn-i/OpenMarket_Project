@@ -70,7 +70,6 @@ mypageModal.addEventListener('mouseleave', () => {
 
 // ----------
 // 로그아웃
-// 로그아웃
 logoutBtn.addEventListener('click', async () => {
     try {
         const res = await fetch('https://openmarket.weniv.co.kr/accounts/logout/', {
