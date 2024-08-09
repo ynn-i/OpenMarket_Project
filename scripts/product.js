@@ -60,10 +60,8 @@ const createProductDetailUi = (productData) => {
     countResult.classList.add('count-result');
     countResult.textContent = '총 수량';
     const countResultNum = document.createElement('span');
-    // 총 금액 정보 수정 예정
     const costResult = document.createElement('p');
     costResult.classList.add('cost-result');
-    costResult.textContent = `${productData.price}`;
 
     const btnCon = document.createElement('div');
     btnCon.classList.add('btn-con');
@@ -135,6 +133,7 @@ const initProductDetailPage = async () => {
         const productData = await fetchProductDetails(productId);
         if (productData) {
             createProductDetailUi(productData);
+            addEventListeners(productData);
         }
     } else {
         console.error('제품 ID가 URL에 없습니다.');
@@ -152,3 +151,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+const addEventListeners = (productData) => {
+    const purchaseBtn = document.querySelector('.purchase-btn');
+    const cartBtn = document.querySelector('.cart-btn');
+
+    if (purchaseBtn && cartBtn) {
+        purchaseBtn.addEventListener('click', () => {
+            window.location.href = `payment.html?product_id=${productData.id}`;
+        });
+
+        cartBtn.addEventListener('click', () => {
+            window.location.href = `cart.html?product_id=${productData.id}`;
+        });
+    } else {
+        console.error('해당 페이지를 찾을 수 없습니다.');
+    }
+};
