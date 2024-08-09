@@ -44,13 +44,13 @@ const createProductDetailUi = (productData) => {
     productCounter.classList.add('counter');
     const counterMinus = document.createElement('img');
     counterMinus.classList.add('icon-minus');
-    counterMinus.src = './assets/icon-minus.svg';
+    counterMinus.src = './assets/icons/icon-minus.svg';
     const counterNumCon = document.createElement('div');
     const counterNum = document.createElement('span');
     counterNum.textContent = `${productData.stock}`;
     const counterPlus = document.createElement('img');
     counterPlus.classList.add('icon-plus');
-    counterPlus.src = './assets/icon-plus.svg';
+    counterPlus.src = './assets/icons/icon-plus.svg';
 
     const costResultInfo = document.createElement('div');
     costResultInfo.classList.add('cost-result-info');
