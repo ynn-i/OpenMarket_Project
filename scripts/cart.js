@@ -3,10 +3,9 @@ const getToken = () => {
 };
 
 const createCartUi = (productData) => {
-    const cartListCon = document.createElement('div');
-    cartListCon.innerHTML = `
-        <ul class="cart-list">
-            <li>
+    console.log(productData);
+    const cartItem = document.createElement('li');
+    cartItem.innerHTML = `
                 <div class="check">
                     <label class="check-cart">
                         <input type="checkbox">
@@ -21,11 +20,8 @@ const createCartUi = (productData) => {
                         <p class="delivery">${productData.shipping_method || ''}</p>
                     </div>
                 </div>
-            </li>
-        </ul>
     `;
-
-    document.body.appendChild(cartListCon);
+    return cartItem;
 };
 
 const getCart = async () => {
@@ -54,12 +50,13 @@ const getCart = async () => {
 const initCart = async () => {
     const productDatas = await getCart();
     if (productDatas && productDatas.results) {
+        const cartListCon = document.querySelector('.cart-list');
         productDatas.results.forEach((productData) => {
-            createCartUi(productData);
+            const cartItem = createCartItem(productData);
+            cartListCon.appendChild(cartItem);
         });
     } else {
         console.error('상품이 존재하지 않습니다.');
     }
 };
-
 initCart();
