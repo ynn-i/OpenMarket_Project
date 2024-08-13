@@ -1,50 +1,29 @@
-// 토큰을 가져오는 함수 정의
 const getToken = () => {
     return localStorage.getItem('token');
 };
 
 const createCartUi = (productData) => {
-    const cartListCon = document.createElement('ul');
-    cartListCon.classList.add('cart-list');
-    const cartList = document.createElement('li');
-    const checkCon = document.createElement('div');
-    checkCon.classList.add('check');
-    const checkLabel = document.createElement('label');
-    checkLabel.classList.add('check-cart');
-    const checkInp = document.createElement('input');
-    checkInp.type = 'checkbox';
-    const productCart = document.createElement('div');
-    productCart.classList.add('product-cart');
-    const productThumbCart = document.createElement('img');
-    productThumbCart.classList.add('product-thumb-cart');
-    productThumbCart.src = productData.image;
-    productThumbCart.alt = productData.product_name;
-    const infoCon = document.createElement('div');
-    infoCon.classList.add('info-con');
-    const subTitle = document.createElement('p');
-    subTitle.classList.add('sub-title');
-    subTitle.textContent = productData.subTitle || '';
-    const mainTitle = document.createElement('p');
-    mainTitle.classList.add('main-title');
-    mainTitle.textContent = productData.product_name || '';
-    const productPrice = document.createElement('p');
-    productPrice.classList.add('product-price');
-    productPrice.textContent = `${productData.price || 0}원`;
-    const delivery = document.createElement('p');
-    delivery.classList.add('delivery');
-    delivery.textContent = productData.shipping_method || '';
-
-    cartListCon.appendChild(cartList);
-    cartList.appendChild(checkCon);
-    checkCon.appendChild(checkLabel);
-    checkCon.appendChild(checkInp);
-    cartList.appendChild(productCart);
-    productCart.appendChild(productThumbCart);
-    productCart.appendChild(infoCon);
-    infoCon.appendChild(subTitle);
-    infoCon.appendChild(mainTitle);
-    infoCon.appendChild(productPrice);
-    infoCon.appendChild(delivery);
+    const cartListCon = document.createElement('div');
+    cartListCon.innerHTML = `
+        <ul class="cart-list">
+            <li>
+                <div class="check">
+                    <label class="check-cart">
+                        <input type="checkbox">
+                    </label>
+                </div>
+                <div class="product-cart">
+                    <img class="product-thumb-cart" src="${productData.image}" alt="${productData.product_name}">
+                    <div class="info-con">
+                        <p class="sub-title">${productData.subTitle || ''}</p>
+                        <p class="main-title">${productData.product_name || ''}</p>
+                        <p class="product-price">${productData.price || 0}원</p>
+                        <p class="delivery">${productData.shipping_method || ''}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    `;
 
     document.body.appendChild(cartListCon);
 };
@@ -69,7 +48,6 @@ const getCart = async () => {
         return data;
     } catch (err) {
         console.error(err);
-        return null;
     }
 };
 
@@ -83,4 +61,5 @@ const initCart = async () => {
         console.error('상품이 존재하지 않습니다.');
     }
 };
+
 initCart();
