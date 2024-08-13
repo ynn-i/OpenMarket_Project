@@ -1,6 +1,6 @@
 // 토큰을 가져오는 함수 정의
 const getToken = () => {
-    return localStorage.getItem('login-token');
+    return localStorage.getItem('token');
 };
 
 const createCartUi = (productData) => {
