@@ -35,7 +35,7 @@ const createProductDetailUi = (productData) => {
             <div class="cost-result-info">
                 <p class="cost-info">총 상품 금액</p>
                 <p class="count-result">총 수량 <span class="count-result-num">1</span>개</p>
-                <p class="cost-result">${productData.price}원</p>
+                <p class="cost-result">${productData.price}</p>
             </div>
             <div class="btn-con">
                 <button class="purchase-btn">바로 구매</button>
