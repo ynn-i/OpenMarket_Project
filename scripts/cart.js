@@ -1,4 +1,4 @@
-// 상품 데이터를 가져오기
+// 상품 데이터 가져오기
 const fetchProductsData = async () => {
     try {
         const response = await fetch('https://openmarket.weniv.co.kr/products/');
@@ -20,23 +20,35 @@ const getToken = () => {
 };
 
 const createCartUi = (productData) => {
-    console.log(productData);
+    const shipping = productData.shipping_method === 'PARCEL' ? '택배배송' : '무료배송';
     const cartItem = document.createElement('li');
     cartItem.innerHTML = `
-                <div class="check">
-                    <label class="check-cart">
-                        <input type="checkbox">
-                    </label>
-                </div>
-                <div class="product-cart">
-                    <img class="product-thumb-cart" src="${productData.image}" alt="${productData.product_name}">
-                    <div class="info-con">
-                        <p class="sub-title">${productData.subTitle || ''}</p>
-                        <p class="main-title">${productData.product_name || ''}</p>
-                        <p class="product-price">${productData.price || 0}원</p>
-                        <p class="delivery">${productData.shipping_method || ''}</p>
-                    </div>
-                </div>
+        <div class="check">
+            <label class="check-cart">
+                <input type="checkbox">
+            </label>
+        </div>
+        <div class="product-cart">
+            <img class="product-thumb-cart" src="${productData.image}" alt="${productData.product_name}">
+            <div class="info-con">
+                <p class="sub-title">${productData.subTitle || ''}</p>
+                <p class="main-title">${productData.product_name || ''}</p>
+                <p class="product-price">${productData.price || 0}원</p>
+                <p class="delivery">${shipping}</p>
+            </div>
+        </div>
+        <div class="counter-con">
+            <div class="counter">
+                <img src="./assets/icons/icon-minus.svg" alt="" />
+                <div><span>1</span></div>
+                <img src="./assets/icons/icon-plus.svg" alt="" />
+            </div>
+        </div>
+        <div class="product-cost">
+            <p class="cost">TEXT</p>
+            <button class="buy-sm-btn">TEXT</button>
+        </div>
+        <img class="close-btn" src="./assets/icons/icon-delete.svg" alt="" />
     `;
     return cartItem;
 };
@@ -68,7 +80,7 @@ const initCart = async () => {
     const productDatas = await getCart();
     const productsData = await fetchProductsData();
 
-    if (productDatas && productDatas.results) {
+    if (productDatas && productDatas.results && productDatas.results.length > 0) {
         const cartListCon = document.querySelector('.cart-list');
 
         productDatas.results.forEach((cartProduct) => {
@@ -80,8 +92,15 @@ const initCart = async () => {
                 console.error('해당 상품 정보를 찾을 수 없습니다.');
             }
         });
+
+        // 장바구니에 상품이 있을 경우 총 합계 정보 전달
+        const costResultCon = document.querySelector('.cost-result-con');
+        if (costResultCon) {
+            costResultCon.classList.remove('hidden');
+        }
     } else {
-        console.error('상품이 존재하지 않습니다.');
+        const noCart = document.querySelector('.no-cart');
+        noCart.classList.remove('hidden');
     }
 };
 

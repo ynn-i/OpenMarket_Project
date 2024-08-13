@@ -528,7 +528,7 @@ main h2 {
 
 .cart-list {
   width: 100%;
-  margin: 35px 0 0 0;
+  margin: 35px 0 80px 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -655,7 +655,7 @@ main h2 {
 }
 .cost-result-con .cost-result {
   width: 100%;
-  margin: 80px 0 40px 0;
+  margin: 0 0 40px 0;
   padding: 40px;
   display: flex;
   align-items: center;
@@ -707,7 +707,7 @@ main h2 {
 }
 
 .no-cart {
-  padding: 200px 0;
+  padding: 120px 0 200px 0;
   text-align: center;
 }
 .no-cart p {
