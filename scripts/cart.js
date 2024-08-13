@@ -11,8 +11,7 @@ const fetchProductsData = async () => {
 
 // 상품 아이디로 상품 정보 불러오기
 const findProductInfo = (productId, productsData) => {
-    const productInfo = productsData.results?.find((e) => e.product_id === Number(productId));
-    return productInfo;
+    return productsData.results?.find((e) => e.product_id === Number(productId));
 };
 
 const getToken = () => {
@@ -39,18 +38,51 @@ const createCartUi = (productData) => {
         </div>
         <div class="counter-con">
             <div class="counter">
-                <img src="./assets/icons/icon-minus.svg" alt="" />
-                <div><span>1</span></div>
-                <img src="./assets/icons/icon-plus.svg" alt="" />
+                <img class="icon-minus" src="./assets/icons/icon-minus.svg" alt="" />
+                <div class="counter-num"><span>1</span></div>
+                <img class="icon-plus" src="./assets/icons/icon-plus.svg" alt="" />
             </div>
         </div>
         <div class="product-cost">
-            <p class="cost">TEXT</p>
+            <p class="cost-result">TEXT</p>
             <button class="buy-sm-btn">주문하기</button>
         </div>
         <img class="close-btn" src="./assets/icons/icon-delete.svg" alt="" />
     `;
+
+    const counterNum = cartItem.querySelector('.counter-num span');
+    const counterMinus = cartItem.querySelector('.icon-minus');
+    const counterPlus = cartItem.querySelector('.icon-plus');
+    const costResult = cartItem.querySelector('.cost-result');
+
+    initializeCartCounter(productData.price, counterNum, counterMinus, counterPlus, costResult, productData.stock);
+
     return cartItem;
+};
+
+const initializeCartCounter = (price, counterNum, minusBtn, plusBtn, costResult, stock) => {
+    let count = 1;
+    const updateDisplay = () => {
+        counterNum.textContent = count;
+        costResult.textContent = `${(count * price).toLocaleString()}원`;
+    };
+    const increase = () => {
+        if (count < stock) {
+            count++;
+            updateDisplay();
+        } else {
+            console.log('재고 수량을 초과해서 선택할 수 없습니다.');
+        }
+    };
+    const decrease = () => {
+        if (count > 1) {
+            count--;
+            updateDisplay();
+        }
+    };
+    minusBtn.addEventListener('click', decrease);
+    plusBtn.addEventListener('click', increase);
+    updateDisplay();
 };
 
 const getCart = async () => {
@@ -82,7 +114,6 @@ const initCart = async () => {
 
     if (productDatas && productDatas.results && productDatas.results.length > 0) {
         const cartListCon = document.querySelector('.cart-list');
-
         productDatas.results.forEach((cartProduct) => {
             const productData = findProductInfo(cartProduct.product_id, productsData);
             if (productData) {
