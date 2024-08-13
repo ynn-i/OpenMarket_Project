@@ -52,7 +52,7 @@ const initCart = async () => {
     if (productDatas && productDatas.results) {
         const cartListCon = document.querySelector('.cart-list');
         productDatas.results.forEach((productData) => {
-            const cartItem = createCartItem(productData);
+            const cartItem = createCartUi(productData);
             cartListCon.appendChild(cartItem);
         });
     } else {
