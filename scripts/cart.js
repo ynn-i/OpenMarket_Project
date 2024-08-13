@@ -1,3 +1,20 @@
+// 상품 데이터를 가져오기
+const fetchProductsData = async () => {
+    try {
+        const response = await fetch('https://openmarket.weniv.co.kr/products/');
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.error('상품 데이터를 가져오는 데 실패했습니다.', err);
+    }
+};
+
+// 상품 아이디로 상품 정보 불러오기
+const findProductInfo = (productId, productsData) => {
+    const productInfo = productsData.results?.find((e) => e.product_id === Number(productId));
+    return productInfo;
+};
+
 const getToken = () => {
     return localStorage.getItem('token');
 };
@@ -49,14 +66,23 @@ const getCart = async () => {
 
 const initCart = async () => {
     const productDatas = await getCart();
+    const productsData = await fetchProductsData();
+
     if (productDatas && productDatas.results) {
         const cartListCon = document.querySelector('.cart-list');
-        productDatas.results.forEach((productData) => {
-            const cartItem = createCartUi(productData);
-            cartListCon.appendChild(cartItem);
+
+        productDatas.results.forEach((cartProduct) => {
+            const productData = findProductInfo(cartProduct.product_id, productsData);
+            if (productData) {
+                const cartItem = createCartUi(productData);
+                cartListCon.appendChild(cartItem);
+            } else {
+                console.error('해당 상품 정보를 찾을 수 없습니다.');
+            }
         });
     } else {
         console.error('상품이 존재하지 않습니다.');
     }
 };
+
 initCart();
