@@ -12,94 +12,47 @@ const fetchProductDetails = async (productId) => {
 
 const createProductDetailUi = (productData) => {
     const productDetailContainer = document.querySelector('.product-detail');
+    const shippingMethodText = productData.shipping_method === 'PARCEL' ? '택배배송' : '무료배송';
 
-    const productImageCon = document.createElement('div');
-    productImageCon.classList.add('product-detail-img-con');
-    const productImage = document.createElement('img');
-    productImage.classList.add('product-detail-img');
-    productImage.src = productData.image;
-    productImage.alt = productData.product_name;
+    productDetailContainer.innerHTML = `
+        <div class="product-detail-img-con">
+            <img class="product-detail-img" src="${productData.image}" alt="${productData.product_name}">
+        </div>
+        <div class="product-detail-info">
+            <div class="detail-info">
+                <p class="store-info">${productData.store_name}</p>
+                <p class="product-info">${productData.product_name}</p>
+                <p class="price-info">${productData.price}원</p>
+                <p class="delivery-info">${shippingMethodText}</p>
+            </div>
+            <div class="product-counter-con">
+                <div class="counter">
+                    <img class="icon-minus" src="./assets/icons/icon-minus.svg" alt="minus">
+                    <div><span class="counter-num">1</span></div>
+                    <img class="icon-plus" src="./assets/icons/icon-plus.svg" alt="plus">
+                </div>
+            </div>
+            <div class="cost-result-info">
+                <p class="cost-info">총 상품 금액</p>
+                <p class="count-result">총 수량 <span class="count-result-num">1</span>개</p>
+                <p class="cost-result">${productData.price}원</p>
+            </div>
+            <div class="btn-con">
+                <button class="purchase-btn">바로 구매</button>
+                <button class="cart-btn">장바구니</button>
+            </div>
+        </div>
+    `;
 
-    const productDetailInfo = document.createElement('div');
-    productDetailInfo.classList.add('product-detail-info');
-    const detailInfo = document.createElement('div');
-    detailInfo.classList.add('detail-info');
-    const storeInfo = document.createElement('p');
-    storeInfo.classList.add('store-info');
-    storeInfo.textContent = `${productData.store_name}`;
-    const productInfo = document.createElement('p');
-    productInfo.classList.add('product-info');
-    productInfo.textContent = productData.product_name;
-    const priceInfo = document.createElement('p');
-    priceInfo.classList.add('price-info');
-    priceInfo.textContent = `${productData.price}`;
-    // 배송방법 정보 수정 예정
-    const deliveryInfo = document.createElement('p');
-    deliveryInfo.classList.add('delivery-info');
-    deliveryInfo.textContent = `${productData.shipping_method}`;
-
-    const productCounterCon = document.createElement('div');
-    productCounterCon.classList.add('product-counter-con');
-    const productCounter = document.createElement('div');
-    productCounter.classList.add('counter');
-    const counterMinus = document.createElement('img');
-    counterMinus.classList.add('icon-minus');
-    counterMinus.src = './assets/icons/icon-minus.svg';
-    const counterNumCon = document.createElement('div');
-    const counterNum = document.createElement('span');
-    const counterPlus = document.createElement('img');
-    counterPlus.classList.add('icon-plus');
-    counterPlus.src = './assets/icons/icon-plus.svg';
-
-    const costResultInfo = document.createElement('div');
-    costResultInfo.classList.add('cost-result-info');
-    const costInfo = document.createElement('p');
-    costInfo.classList.add('cost-info');
-    costInfo.textContent = '총 상품 금액';
-    const countResult = document.createElement('p');
-    countResult.classList.add('count-result');
-    countResult.textContent = '총 수량';
-    const countResultNum = document.createElement('span');
-    const costResult = document.createElement('p');
-    costResult.classList.add('cost-result');
-
-    const btnCon = document.createElement('div');
-    btnCon.classList.add('btn-con');
-    const purchaseBtn = document.createElement('button');
-    purchaseBtn.classList.add('purchase-btn');
-    purchaseBtn.textContent = '바로 구매';
-    const cartBtn = document.createElement('button');
-    cartBtn.classList.add('cart-btn');
-    cartBtn.textContent = '장바구니';
-
-    productDetailContainer.appendChild(productImage);
-    productDetailContainer.appendChild(productImageCon);
-    productImageCon.appendChild(productImage);
-    productDetailContainer.appendChild(productDetailInfo);
-    productDetailInfo.appendChild(detailInfo);
-    detailInfo.appendChild(storeInfo);
-    detailInfo.appendChild(productInfo);
-    detailInfo.appendChild(priceInfo);
-    detailInfo.appendChild(deliveryInfo);
-    productDetailInfo.appendChild(productCounterCon);
-    productCounterCon.appendChild(productCounter);
-    productCounter.appendChild(counterMinus);
-    productCounter.appendChild(counterNumCon);
-    counterNumCon.appendChild(counterNum);
-    productCounter.appendChild(counterPlus);
-    productDetailInfo.appendChild(costResultInfo);
-    costResultInfo.appendChild(costInfo);
-    costResultInfo.appendChild(countResult);
-    countResult.appendChild(countResultNum);
-    costResultInfo.appendChild(costResult);
-    productDetailInfo.appendChild(btnCon);
-    btnCon.appendChild(purchaseBtn);
-    btnCon.appendChild(cartBtn);
+    const counterNum = productDetailContainer.querySelector('.counter-num');
+    const counterMinus = productDetailContainer.querySelector('.icon-minus');
+    const counterPlus = productDetailContainer.querySelector('.icon-plus');
+    const costResult = productDetailContainer.querySelector('.cost-result');
+    const countResultNum = productDetailContainer.querySelector('.count-result-num');
 
     initializeCounter(productData.price, counterNum, counterMinus, counterPlus, costResult, countResultNum, productData.stock);
 };
 
-// 카운터 기능 구현
 const initializeCounter = (price, counterNum, minusBtn, plusBtn, costResult, countResultNum, stock) => {
     let count = 1;
     const updateDisplay = () => {
