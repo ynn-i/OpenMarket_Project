@@ -549,8 +549,10 @@ main h2 {
   gap: 36px;
 }
 .cart-list li .product-cart .product-thumb-cart {
-  width: 160px;
+  max-width: 160px;
+  width: 100%;
   height: 160px;
+  object-fit: cover;
   border-radius: 10px;
 }
 .cart-list li .product-cart .info-con {
@@ -648,6 +650,7 @@ main h2 {
 }
 
 .cost-result-con {
+  padding-bottom: 160px;
   width: 100%;
   display: flex;
   flex-direction: column;

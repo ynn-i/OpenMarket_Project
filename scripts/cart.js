@@ -46,7 +46,7 @@ const createCartUi = (productData) => {
         </div>
         <div class="product-cost">
             <p class="cost">TEXT</p>
-            <button class="buy-sm-btn">TEXT</button>
+            <button class="buy-sm-btn">주문하기</button>
         </div>
         <img class="close-btn" src="./assets/icons/icon-delete.svg" alt="" />
     `;
